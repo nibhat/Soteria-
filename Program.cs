@@ -1,7 +1,5 @@
-﻿//using System;
 //using System.Collections.Generic;
 //using System.Linq;
-//using System.Text;
 //using System.Threading.Tasks;
 
 
@@ -16,24 +14,19 @@ namespace AzureFaceRecognition
 {
     static class Program
     {
-        const string subscriptionKey = "82e626f1-aa57-4dd3-acaa-c1eb3c7cdaa6";
-        // 82e626f1-aa57-4dd3-acaa-c1eb3c7cdaa6 
-        // bdf04486-9bcc-4280-9252-6082ee2a3fd9
-        // 05b131d3-c7c9-4b9d-a48d-699527691849
-        // NOTE: You must use the same region in your REST call as you used to
-        // obtain your subscription keys. For example, if you obtained your
-        // subscription keys from westus, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect/";
-        
+          
          static void Main()
         {
-            // Get the path and filename to process from the user.
+            //get the subscription cmdline, put the subscription in config file later in private repo
+            Console.WriteLine("Enter the Azure subscription ID");
+            string subscriptionKey = Console.ReadLine();
+             // do the try catch exception logic later
+             //get the cognitive endpoiny
+             Console.WriteLine("Enter the Azure cognitive service endpoint here");
+            string uriBase = Console.ReadLine();
+             // do the try catch exception logic later
+             
+             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
             Console.Write("Enter the path to an image with faces that you wish to analyze: ");
             string imageFilePath = Console.ReadLine();
@@ -58,10 +51,9 @@ namespace AzureFaceRecognition
         }
 
 
-        /// <summary>
+      
         /// Gets the analysis of the specified image by using the Face REST API.
-        /// </summary>
-        /// <param name="imageFilePath">The image file.</param>
+    
         static async void MakeAnalysisRequest(string imageFilePath)
         {
             HttpClient client = new HttpClient();
